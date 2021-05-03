@@ -49,7 +49,7 @@ public <T> T getService(Class<T> serviceClass) {
         e.printStackTrace();
         return null;
     }
-} 
+}
 ```
 
 ## LISTENER
@@ -70,7 +70,7 @@ userService.login(username, password, new UserService.UserServiceListener() {
         System.out.println("Usuário logado.");
         currentUser = user;
     }
-    
+
     @Override
     public void onError(Throwable t) {
         if (t instanceof UserNotFoundException) {
@@ -78,7 +78,6 @@ userService.login(username, password, new UserService.UserServiceListener() {
         } else {
             System.out.println("Erro geral do sistema.");
         }
-        
     }
 });
 ```
@@ -87,7 +86,7 @@ userService.login(username, password, new UserService.UserServiceListener() {
 * TODO 6 - Criar uma interface dentro da classe br.com.sensedia.lab6.model.User chamada Observable, de acordo com a implementação abaixo:
 ```java	
 public interface Observable {
-    <T> void notify(String field, T oldValue, T newValue);
+    void notify(String field, Object oldValue, Object newValue);
 }
 ```
 
