@@ -23,6 +23,7 @@ public class Main {
 		 * @TODO 5 - Implementar a interface UserServiceListener dentro do método
 		 *       estático main da classe Main conforme descrito no README.md
 		 */
+
 		currentUser.addObservable((field, oldValue, newValue) -> System.out
 				.println("O campo " + field + " tinha o valor '" + oldValue + "' e agora tem '" + newValue + "'"));
 		System.out.print("Change password: ");
