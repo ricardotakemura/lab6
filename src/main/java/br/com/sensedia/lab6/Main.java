@@ -23,6 +23,23 @@ public class Main {
 		 * @TODO 5 - Implementar a interface UserServiceListener dentro do método
 		 *       estático main da classe Main conforme descrito no README.md
 		 */
+		userService.login(username, password, new UserService.UserServiceListener() {
+
+		    @Override
+		    public void onLogin(User user) {
+		        System.out.println("Usuário logado.");
+		        currentUser = user;
+		    }
+
+		    @Override
+		    public void onError(Throwable t) {
+		        if (t instanceof UserNotFoundException) {
+		            System.out.println("Usuário não encontrado.");
+		        } else {
+		            System.out.println("Erro geral do sistema.");
+		        }
+		    }
+		});
 
 		currentUser.addObservable((field, oldValue, newValue) -> System.out
 				.println("O campo " + field + " tinha o valor '" + oldValue + "' e agora tem '" + newValue + "'"));

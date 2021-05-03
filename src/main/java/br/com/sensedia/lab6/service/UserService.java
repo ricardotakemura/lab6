@@ -18,6 +18,10 @@ public class UserService {
 	 *       br.com.sensedia.lab6.service.UserService, com os métodos onLogin e
 	 *       onError
 	 **/
+	public interface UserServiceListener {
+	    void onLogin(User user);
+	    void onError(Throwable t);
+	}
 
 	protected UserService() {
 		try (BufferedReader reader = new BufferedReader(

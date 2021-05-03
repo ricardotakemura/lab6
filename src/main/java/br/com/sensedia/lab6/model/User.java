@@ -14,12 +14,34 @@ public class User {
 	 *       br.com.sensedia.lab6.model.User chamada Builder, de acordo com a
 	 *       implementação descrita no README.md
 	 */
+	public static class Builder {
+
+	    private String name;
+	    private String password;
+
+	    public Builder name(String name) {
+	        this.name = name;
+	        return this;
+	    }
+
+	    public Builder password(String password) {
+	        this.password = password;
+	        return this;
+	    }
+
+	    public User build() {
+	        return new User(name, password);
+	    }
+	}
 
 	/**
 	 * @TODO 6 - Criar uma interface dentro da classe
 	 *       br.com.sensedia.lab6.model.User chamada Observable, de acordo com a
 	 *       implementação descrita no README.md
 	 */
+	public interface Observable {
+	    void notify(String field, Object oldValue, Object newValue);
+	}
 
 	private User(String name, String password) {
 		setName(name);
@@ -39,6 +61,7 @@ public class User {
 		 * @TODO 7 - Adicionar o código descrito no README.md no método setName da
 		 *       classe br.com.sensedia.lab6.model.User (primeira linha do método).
 		 */
+		observables.stream().forEach(it -> it.notify("name", this.name, name));
 		this.name = name;
 	}
 
@@ -47,6 +70,7 @@ public class User {
 		 * @TODO 8 - Adicionar o código descrito no README.md no método setPassword da
 		 *       classe br.com.sensedia.lab6.model.User (primeira linha do método).
 		 */
+		observables.stream().forEach(it -> it.notify("password", this.password, password));
 		this.password = password;
 	}
 
