@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import br.com.sensedia.lab6.model.User;
 import br.com.sensedia.lab6.service.ServiceFactory;
 import br.com.sensedia.lab6.service.UserService;
+import br.com.sensedia.lab6.service.exception.UserNotFoundException;
 
 public class Main {
 
